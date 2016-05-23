@@ -1,0 +1,128 @@
+
+a.out:     ファイル形式 mach-o-i386
+
+
+セクション .text の逆アセンブル:
+
+00001e70 <_printHack>:
+    1e70:	55                   	push   ebp
+    1e71:	89 e5                	mov    ebp,esp
+    1e73:	83 ec 08             	sub    esp,0x8
+    1e76:	e8 00 00 00 00       	call   1e7b <_printHack+0xb>
+    1e7b:	58                   	pop    eax
+    1e7c:	8d 80 29 01 00 00    	lea    eax,[eax+0x129]
+    1e82:	89 04 24             	mov    DWORD PTR [esp],eax
+    1e85:	e8 da 00 00 00       	call   1f64 <_main+0xc4>
+    1e8a:	89 45 fc             	mov    DWORD PTR [ebp-0x4],eax
+    1e8d:	83 c4 08             	add    esp,0x8
+    1e90:	5d                   	pop    ebp
+    1e91:	c3                   	ret    
+    1e92:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 nop WORD PTR cs:[eax+eax*1+0x0]
+    1e99:	1f 84 00 00 00 00 00 
+
+00001ea0 <_main>:
+    1ea0:	55                   	push   ebp
+    1ea1:	89 e5                	mov    ebp,esp
+    1ea3:	57                   	push   edi
+    1ea4:	56                   	push   esi
+    1ea5:	81 ec 30 01 00 00    	sub    esp,0x130
+    1eab:	e8 00 00 00 00       	call   1eb0 <_main+0x10>
+    1eb0:	58                   	pop    eax
+    1eb1:	b9 00 01 00 00       	mov    ecx,0x100
+    1eb6:	8b 90 5c 01 00 00    	mov    edx,DWORD PTR [eax+0x15c]
+    1ebc:	8d b5 f4 fe ff ff    	lea    esi,[ebp-0x10c]
+    1ec2:	8b b8 58 01 00 00    	mov    edi,DWORD PTR [eax+0x158]
+    1ec8:	8b 3f                	mov    edi,DWORD PTR [edi]
+    1eca:	89 7d f4             	mov    DWORD PTR [ebp-0xc],edi
+    1ecd:	c7 85 f0 fe ff ff 00 	mov    DWORD PTR [ebp-0x110],0x0
+    1ed4:	00 00 00 
+    1ed7:	8b 12                	mov    edx,DWORD PTR [edx]
+    1ed9:	89 34 24             	mov    DWORD PTR [esp],esi
+    1edc:	c7 44 24 04 00 01 00 	mov    DWORD PTR [esp+0x4],0x100
+    1ee3:	00 
+    1ee4:	89 54 24 08          	mov    DWORD PTR [esp+0x8],edx
+    1ee8:	89 85 ec fe ff ff    	mov    DWORD PTR [ebp-0x114],eax
+    1eee:	89 8d e8 fe ff ff    	mov    DWORD PTR [ebp-0x118],ecx
+    1ef4:	e8 65 00 00 00       	call   1f5e <_main+0xbe>
+    1ef9:	8d 8d f4 fe ff ff    	lea    ecx,[ebp-0x10c]
+    1eff:	89 0c 24             	mov    DWORD PTR [esp],ecx
+    1f02:	89 85 e4 fe ff ff    	mov    DWORD PTR [ebp-0x11c],eax
+    1f08:	e8 57 00 00 00       	call   1f64 <_main+0xc4>
+    1f0d:	b9 0a 00 00 00       	mov    ecx,0xa
+    1f12:	c7 04 24 0a 00 00 00 	mov    DWORD PTR [esp],0xa
+    1f19:	89 85 e0 fe ff ff    	mov    DWORD PTR [ebp-0x120],eax
+    1f1f:	89 8d dc fe ff ff    	mov    DWORD PTR [ebp-0x124],ecx
+    1f25:	e8 40 00 00 00       	call   1f6a <_main+0xca>
+    1f2a:	8b 8d ec fe ff ff    	mov    ecx,DWORD PTR [ebp-0x114]
+    1f30:	8b 91 58 01 00 00    	mov    edx,DWORD PTR [ecx+0x158]
+    1f36:	8b 12                	mov    edx,DWORD PTR [edx]
+    1f38:	3b 55 f4             	cmp    edx,DWORD PTR [ebp-0xc]
+    1f3b:	89 85 d8 fe ff ff    	mov    DWORD PTR [ebp-0x128],eax
+    1f41:	0f 85 0c 00 00 00    	jne    1f53 <_main+0xb3>
+    1f47:	31 c0                	xor    eax,eax
+    1f49:	81 c4 30 01 00 00    	add    esp,0x130
+    1f4f:	5e                   	pop    esi
+    1f50:	5f                   	pop    edi
+    1f51:	5d                   	pop    ebp
+    1f52:	c3                   	ret    
+    1f53:	e8 00 00 00 00       	call   1f58 <_main+0xb8>
+
+セクション .symbol_stub の逆アセンブル:
+
+00001f58 <.symbol_stub>:
+    1f58:	ff 25 10 20 00 00    	jmp    DWORD PTR ds:0x2010
+    1f5e:	ff 25 14 20 00 00    	jmp    DWORD PTR ds:0x2014
+    1f64:	ff 25 18 20 00 00    	jmp    DWORD PTR ds:0x2018
+    1f6a:	ff 25 1c 20 00 00    	jmp    DWORD PTR ds:0x201c
+
+セクション __TEXT.__stub_helper の逆アセンブル:
+
+00001f70 <__TEXT.__stub_helper>:
+    1f70:	68 04 20 00 00       	push   0x2004
+    1f75:	ff 25 00 20 00 00    	jmp    DWORD PTR ds:0x2000
+    1f7b:	90                   	nop
+    1f7c:	68 00 00 00 00       	push   0x0
+    1f81:	e9 ea ff ff ff       	jmp    1f70 <_main+0xd0>
+    1f86:	68 18 00 00 00       	push   0x18
+    1f8b:	e9 e0 ff ff ff       	jmp    1f70 <_main+0xd0>
+    1f90:	68 25 00 00 00       	push   0x25
+    1f95:	e9 d6 ff ff ff       	jmp    1f70 <_main+0xd0>
+    1f9a:	68 33 00 00 00       	push   0x33
+    1f9f:	e9 cc ff ff ff       	jmp    1f70 <_main+0xd0>
+
+セクション __TEXT.__unwind_info の逆アセンブル:
+
+00001fb4 <__TEXT.__unwind_info>:
+    1fb4:	01 00                	add    DWORD PTR [eax],eax
+    1fb6:	00 00                	add    BYTE PTR [eax],al
+    1fb8:	1c 00                	sbb    al,0x0
+    1fba:	00 00                	add    BYTE PTR [eax],al
+    1fbc:	00 00                	add    BYTE PTR [eax],al
+    1fbe:	00 00                	add    BYTE PTR [eax],al
+    1fc0:	1c 00                	sbb    al,0x0
+    1fc2:	00 00                	add    BYTE PTR [eax],al
+    1fc4:	00 00                	add    BYTE PTR [eax],al
+    1fc6:	00 00                	add    BYTE PTR [eax],al
+    1fc8:	1c 00                	sbb    al,0x0
+    1fca:	00 00                	add    BYTE PTR [eax],al
+    1fcc:	02 00                	add    al,BYTE PTR [eax]
+    1fce:	00 00                	add    BYTE PTR [eax],al
+    1fd0:	70 0e                	jo     1fe0 <_main+0x140>
+    1fd2:	00 00                	add    BYTE PTR [eax],al
+    1fd4:	34 00                	xor    al,0x0
+    1fd6:	00 00                	add    BYTE PTR [eax],al
+    1fd8:	34 00                	xor    al,0x0
+    1fda:	00 00                	add    BYTE PTR [eax],al
+    1fdc:	59                   	pop    ecx
+    1fdd:	0f 00 00             	sldt   WORD PTR [eax]
+    1fe0:	00 00                	add    BYTE PTR [eax],al
+    1fe2:	00 00                	add    BYTE PTR [eax],al
+    1fe4:	34 00                	xor    al,0x0
+    1fe6:	00 00                	add    BYTE PTR [eax],al
+    1fe8:	03 00                	add    eax,DWORD PTR [eax]
+    1fea:	00 00                	add    BYTE PTR [eax],al
+    1fec:	0c 00                	or     al,0x0
+    1fee:	01 00                	add    DWORD PTR [eax],eax
+    1ff0:	10 00                	adc    BYTE PTR [eax],al
+    1ff2:	01 00                	add    DWORD PTR [eax],eax
+	...
